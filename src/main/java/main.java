@@ -19,6 +19,17 @@ public class main {
 
     public static void main(String[] args) {
 
+        mongoReader hej = new mongoReader();
+
+        try {
+            hej.parseAndPrint();
+        } catch (FileNotFoundException e) {
+
+        }
+
+
+
+        /*
 
         MongoClient mongo = new MongoClient( "localhost" , 27017 );
 
@@ -35,7 +46,7 @@ public class main {
 
 
 
-
+    */
 
 
 

@@ -24,19 +24,24 @@ public class mongoReader {
 
 
 
-        public JSONParser(String jsonFile){
-            this.jsonFile = jsonFile;
-        }
+        //public JSONParser(String jsonFile){
+        //    this.jsonFile = jsonFile;
+        // }
 
         public void parseAndPrint()throws FileNotFoundException {
             try{
-                JsonReader reader = Json.createReader( new FileReader("C:\\Users\\sebas\\IdeaProjects\\MongoDBJava\\src\\main\\resources.") );
+                JsonReader reader = Json.createReader(new FileReader("C:\\Users\\sebas\\IdeaProjects\\MongoDBJava\\src\\main\\resources\\cafe"));
                 JsonStructure jsonStruct = reader.read();
                 if(jsonStruct.getValueType().equals(OBJECT)){
                     System.out.println("Casting to JsonObject...");
                     JsonObject jo = (JsonObject) jsonStruct;
-                    System.out.println("First name: " + jo.getString("firstName"));
-                    System.out.println("Last name: " + jo.getString("lastName"));
+
+                    System.out.println("First Test: " + jo.getString("name", "not working"));
+
+
+
+
+                  /*  System.out.println("Last name: " + jo.getString("lastName"));
                     System.out.println("Age: " + jo.getInt("age"));
                     System.out.println("Street address: " + jo.getString("streetAddress", "No st. addr."));
                     System.out.println("City: " + jo.getString("city", "No city"));
@@ -44,8 +49,14 @@ public class mongoReader {
                     System.out.println("Postal code: " + jo.getString("postalCode", "No postal code"));
                     JsonArray arr = jo.getJsonArray("phoneNumbers");
                     System.out.println("Phone numbers:");
+
+
                     for(JsonValue jv : arr){
+
+                   */
                         /* JsonObject is a Map - check if it has the correct key */
+
+                    /*
                         if( ((JsonObject)jv).keySet().contains("Mobile")){
                             String mobile = ((JsonObject)jv).getString("Mobile");
                             if(mobile!=null){
@@ -58,6 +69,9 @@ public class mongoReader {
                             }
                         }
                     }
+
+                     */
+
                 }
             }catch(FileNotFoundException fnfe){
                 throw new FileNotFoundException("jsonFile");
