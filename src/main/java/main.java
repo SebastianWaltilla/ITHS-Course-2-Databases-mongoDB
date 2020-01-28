@@ -30,12 +30,6 @@ public class main {
         database.createCollection("restaurants");
         System.out.println("collection restaurants created successfully");
 
-
-
-
-
-
-
         //
         database.getCollection("resturants").drop();
 
