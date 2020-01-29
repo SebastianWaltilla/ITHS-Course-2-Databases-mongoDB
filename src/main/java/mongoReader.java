@@ -32,21 +32,18 @@ public class mongoReader {
 
                     System.out.println("_id: " + doc.getJsonObject(i).getString("_id", "piss"));
                     System.out.println("name: " + doc.getJsonObject(i).getString("name", "piss"));
-                    System.out.println("stars: " + doc.getJsonObject(i).getString("stars", "piss"));
-                 /*
-                   System.out.println("name: " + jo.getString("name", "not working"));
-                   System.out.println("stars: " + jo.getString("stars", "not working"));
+                    System.out.println("stars: " + doc.getJsonObject(i).getInt("stars"));
 
-                    JsonArray arr = jo.getJsonArray("categories");
+
+                    JsonArray arr = doc.getJsonObject(i).getJsonArray("categories");
                     System.out.print("Categories: [");
-                    for (int i = 0; i < arr.size() ; i++) {
-                        System.out.print(arr.getString(i));
-                        if (i != arr.size()-1){
-                            System.out.print(", ");
-                        }
+
+                    for (int k = 0; k < arr.size()  ; k++) {
+                        System.out.print(arr.getString(k));
+                        System.out.print(", ");
                     }
                     System.out.print("]");
-*/
+                    System.out.println(" ");
                 }
 
             }
