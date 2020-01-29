@@ -70,16 +70,20 @@ public class mongoReader {
 
                 for (int i = 0; i < doc.size(); i++) {
 
-                    System.out.println("_id: " + doc.getJsonObject(i).getString("_id", "no id"));
-                    System.out.println("name: " + doc.getJsonObject(i).getString("name", "no name"));
-                    System.out.println("stars: " + doc.getJsonObject(i).getInt("stars", 0));
+
+                    String id = doc.getJsonObject(i).getString("_id", "no id");
+                    String name =  doc.getJsonObject(i).getString("name", "no name");
+                    int stars =  doc.getJsonObject(i).getInt("stars");
+
+                    cafeClass in = new cafeClass(id, name, stars);
 
                     JsonArray arr = doc.getJsonObject(i).getJsonArray("categories");
-                    System.out.print("Categories: [");
 
                     for (int k = 0; k < arr.size(); k++) {
-                        System.out.print(arr.getString(k));
-                        System.out.print(", ");
+                        // fyll med = arr.getString(k))
+                        in.getCategories().forstätt här
+
+
                     }
                     System.out.print("]");
                     System.out.println(" ");
