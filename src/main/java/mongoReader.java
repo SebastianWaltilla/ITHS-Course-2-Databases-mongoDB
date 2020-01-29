@@ -26,40 +26,22 @@ public class mongoReader {
                 JsonObject jo = (JsonObject) jsonStruct;
                 System.out.println("Casting to JsonObject...");
 
-                System.out.println("First Test: " + jo.getString("name", "not working"));
-                System.out.println("First Test: " + jo.getString("name", "not working"));
-                System.out.println("First Test: " + jo.getString("name", "not working"));
-
-              /*  System.out.println("Last name: " + jo.getString("lastName"));
-                System.out.println("Age: " + jo.getInt("age"));
-                System.out.println("Street address: " + jo.getString("streetAddress", "No st. addr."));
-                System.out.println("City: " + jo.getString("city", "No city"));
-                System.out.println("State: " + jo.getString("state", "No state"));
-                System.out.println("Postal code: " + jo.getString("postalCode", "No postal code"));
-                JsonArray arr = jo.getJsonArray("phoneNumbers");
-                System.out.println("Phone numbers:");
+                System.out.println("_id: " + jo.getString("_id", "not working"));
+                System.out.println("name: " + jo.getString("name", "not working"));
+                System.out.println("stars: " + jo.getString("stars", "not working"));
 
 
-                for(JsonValue jv : arr){
+                JsonArray arr = jo.getJsonArray("categories");
 
-               */
-                    /* JsonObject is a Map - check if it has the correct key */
 
-                /*
-                    if( ((JsonObject)jv).keySet().contains("Mobile")){
-                        String mobile = ((JsonObject)jv).getString("Mobile");
-                        if(mobile!=null){
-                            System.out.println(" Mobile: " + mobile);
-                        }
-                    }else if(((JsonObject)jv).keySet().contains("Home")){
-                        String home   = ((JsonObject)jv).getString("Home");
-                        if(home!=null){
-                            System.out.println(" Home: " + home);
-                        }
-                    }
+                System.out.print("Categories:");
+                for (int i = 0; i < arr.size() ; i++) {
+                    System.out.print(", " + arr.getString(i));
                 }
 
-                 */
+
+
+
 
             }
         }catch(FileNotFoundException fnfe){
