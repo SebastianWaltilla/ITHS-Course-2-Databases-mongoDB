@@ -13,7 +13,35 @@ import javax.json.JsonStructure;
 public class mongoReader {
 
     private String jsonFile;
+
     private ArrayList<cafeClass> cafeClasses;
+
+
+
+
+
+    public void testLinus(){
+
+        // Exempel till LinuS
+
+        //12. Updating one record
+        updater.updateOne(Filters.eq("name", "Filip"), Updates.set("updated", false));
+
+        //12. Updating one record            // Under ersätter...
+        updater.updateOne(Filters.eq("name", cafeClasses.get(1).getName()), Updates.set("updated", false));
+
+
+
+    }
+
+
+
+
+
+
+
+
+
 
     public void parseAndPrint(String localPath)throws FileNotFoundException {
 
@@ -83,6 +111,14 @@ public class mongoReader {
 
 
 
+
+    public ArrayList<cafeClass> getCafeClasses() {
+        return cafeClasses;
+    }
+
+    public void setCafeClasses(ArrayList<cafeClass> cafeClasses) {
+        this.cafeClasses = cafeClasses;
+    }
 
 
 

@@ -1,8 +1,5 @@
 package main.java;
-
 import java.util.ArrayList;
-
-package mongo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +25,7 @@ public class saveToMongoDB {
     public void saveToMongoDBMethod(ArrayList<cafeClass> listWithCafes){
 
         //1. Basic MongoDB connection
-        MongoManager.init("testdb");
+        MongoManager.init("lab3");
         MongoCollection<Document> coll = MongoManager.getCollection("test");
 
 
