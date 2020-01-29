@@ -32,11 +32,15 @@ public class mongoReader {
             try{
                 JsonReader reader = Json.createReader(new FileReader("C:\\Users\\sebas\\IdeaProjects\\MongoDBJava\\src\\main\\resources\\cafe"));
                 JsonStructure jsonStruct = reader.read();
+
+
                 if(jsonStruct.getValueType().equals(OBJECT)){
-                    System.out.println("Casting to JsonObject...");
                     JsonObject jo = (JsonObject) jsonStruct;
+                    System.out.println("Casting to JsonObject...");
+
 
                     System.out.println("First Test: " + jo.getString("name", "not working"));
+
 
 
 
