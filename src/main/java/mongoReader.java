@@ -31,6 +31,8 @@ public class mongoReader {
                 for (int i = 0; i < doc.size(); i++) {
 
                     System.out.println("_id: " + doc.getJsonObject(i).getString("_id", "piss"));
+                    System.out.println("name: " + doc.getJsonObject(i).getString("name", "piss"));
+                    System.out.println("stars: " + doc.getJsonObject(i).getString("stars", "piss"));
                  /*
                    System.out.println("name: " + jo.getString("name", "not working"));
                    System.out.println("stars: " + jo.getString("stars", "not working"));
