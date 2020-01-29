@@ -1,11 +1,13 @@
 package main.java;
 
+import java.util.ArrayList;
+
 public class cafeClass {
 
     String _id;
     String name;
     int stars;
-    String[] categories;
+    ArrayList<String> categories;
 
 
     public cafeClass(String _id, String name, int stars) {
@@ -14,11 +16,11 @@ public class cafeClass {
         this.stars = stars;
     }
 
-    public String[] getCategories() {
+    public ArrayList<String> getCategories() {
         return categories;
     }
 
-    public void setCategories(String[] categories) {
+    public void setCategories(ArrayList<String> categories) {
         this.categories = categories;
     }
 }

@@ -78,9 +78,8 @@ public class mongoReader {
 
                     JsonArray arr = doc.getJsonObject(i).getJsonArray("categories");
                     for (int k = 0; k < arr.size(); k++) {
-                        // fyll med = arr.getString(k))
 
-                        in.getCategories().forstätt här
+                        in.getCategories().add(arr.getString(k));
 
 
                     }
