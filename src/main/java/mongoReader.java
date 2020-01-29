@@ -15,14 +15,10 @@ public class mongoReader {
     private String jsonFile;
     private ArrayList<cafeClass> cafeClasses;
 
-    //public JSONParser(String jsonFile){
-    //    this.jsonFile = jsonFile;
-    // }
-
-    public void parseAndPrint()throws FileNotFoundException {
+    public void parseAndPrint(String localPath)throws FileNotFoundException {
 
         try {
-            JsonReader reader = Json.createReader(new FileReader("C:\\Users\\sebas\\IdeaProjects\\MongoDBJava\\src\\main\\resources\\cafe"));
+            JsonReader reader = Json.createReader(new FileReader(localPath));
             JsonStructure jsonStruct = reader.read();
 
             if (jsonStruct.getValueType().equals(OBJECT)) {
@@ -54,13 +50,10 @@ public class mongoReader {
 
     }
 
-
-
-
-    public void parseAndSave()throws FileNotFoundException {
+    public void parseAndSaveToClass(String localPath)throws FileNotFoundException {
 
         try {
-            JsonReader reader = Json.createReader(new FileReader("C:\\Users\\sebas\\IdeaProjects\\MongoDBJava\\src\\main\\resources\\cafe"));
+            JsonReader reader = Json.createReader(new FileReader(localPath));
             JsonStructure jsonStruct = reader.read();
 
             if (jsonStruct.getValueType().equals(OBJECT)) {
@@ -78,18 +71,14 @@ public class mongoReader {
 
                     JsonArray arr = doc.getJsonObject(i).getJsonArray("categories");
                     for (int k = 0; k < arr.size(); k++) {
-
                         in.getCategories().add(arr.getString(k));
-
-
                     }
+                    cafeClasses.add(in);
                 }
             }
-
         } catch (FileNotFoundException fnfe) {
             throw new FileNotFoundException("jsonFile");
         }
-
     }
 }
 

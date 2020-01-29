@@ -22,7 +22,7 @@ public class main {
         mongoReader hej = new mongoReader();
 
         try {
-            hej.parseAndPrint();
+            hej.parseAndPrint("C:\\Users\\sebas\\IdeaProjects\\MongoDBJava\\src\\main\\resources\\cafe");
         } catch (FileNotFoundException e) {
 
         }
