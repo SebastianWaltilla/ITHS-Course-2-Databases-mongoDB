@@ -13,11 +13,7 @@ import javax.json.JsonStructure;
 public class mongoReader {
 
     private String jsonFile;
-
     private ArrayList<cafeClass> cafeClasses;
-
-
-
 
 
     public void testLinus(){
@@ -31,8 +27,10 @@ public class mongoReader {
         updater.updateOne(Filters.eq("name", cafeClasses.get(1).getName()), Updates.set("updated", false));
 
 
-
     }
+
+
+
 
 
 

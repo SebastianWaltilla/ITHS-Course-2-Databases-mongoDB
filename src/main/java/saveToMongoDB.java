@@ -24,11 +24,32 @@ public class saveToMongoDB {
 
     public void saveToMongoDBMethod(ArrayList<cafeClass> listWithCafes){
 
-        //1. Basic MongoDB connection
+
+        // skapa connection
+
+
         MongoManager.init("lab3");
         MongoCollection<Document> coll = MongoManager.getCollection("test");
 
 
+
+
+
+        // Fyll
+
+        for (int i = 0; i < ; i++) {
+
+            update id, namn, stars,
+
+            for (int y = 0; y < ; y++) {
+                $push fyll en arrat med kategories
+            }
+
+
+        }
+
+
+        // close
 
 
     }
