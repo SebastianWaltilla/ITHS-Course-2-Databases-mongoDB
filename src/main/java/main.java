@@ -17,7 +17,7 @@ public class main {
 
         saveToMongoDB save = new saveToMongoDB();
 
-        save.saveToMongoDBMethod(hej.getCafeClasses());
+
 
 
 
@@ -25,7 +25,7 @@ public class main {
 
            hej.parseAndSaveToClass("C:\\Users\\sebas\\IdeaProjects\\MongoDBJava\\src\\main\\resources\\cafe");
            hej.getCafeClasses();
-
+            save.saveToMongoDBMethod(hej.getCafeClasses());
             hej.parseAndPrint("C:\\Users\\sebas\\IdeaProjects\\MongoDBJava\\src\\main\\resources\\cafe");
         } catch (FileNotFoundException e) {
 
