@@ -24,7 +24,6 @@ public class editMongodbCollection {
         }
     }
 
-
     public void printCafeFromCollection(MongoCollection<Document> collection){
 
         Block<Document> printBlock = new Block<Document>() {
@@ -43,16 +42,11 @@ public class editMongodbCollection {
     }
 
     public void editNameInCollection(MongoCollection<Document> collection){
-        collection.updateOne(eq("name", "456 Cookies Shop"), new Document("name", "123 Cookies  Heaven"));
-        // how its done in mongoDB
-        //db.restaurants.update({}, {$inc:{stars: 1}},{multi:true})
+         collection.updateOne(eq("name", "456 Cookies Shop"), new Document("$set", new Document("name", "123 Cookies  Heaven")));
     }
 
 
 
-    //● Skriv en metod som uppdaterar “name” för ​"456 Cookies Shop"​ till “123 Cookies  Heaven” 
-    // ● OBS! ​Skriv ut ​alla restauranger igen, så att jag kan se att namnet ändrats för 
-    // denna restaurang när jag kör ert program. 
 
 
 
