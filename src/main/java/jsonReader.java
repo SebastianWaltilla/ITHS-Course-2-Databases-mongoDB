@@ -55,7 +55,6 @@ public class jsonReader {
             JsonStructure jsonStruct = reader.read();
 
             if (jsonStruct.getValueType().equals(OBJECT)) {
-
                 JsonObject jo = (JsonObject) jsonStruct;
                 JsonArray doc = jo.getJsonArray("document");
 
@@ -64,7 +63,6 @@ public class jsonReader {
                     String id = doc.getJsonObject(i).getString("_id", "no id");
                     String name =  doc.getJsonObject(i).getString("name", "no name");
                     int stars =  doc.getJsonObject(i).getInt("stars");
-
                     cafeClass newCafe = new cafeClass(id, name, stars);
 
                     JsonArray arr = doc.getJsonObject(i).getJsonArray("categories");
@@ -80,10 +78,10 @@ public class jsonReader {
         return cafeClasses;
     }
 
+
     public ArrayList<cafeClass> getCafeClasses() {
         return cafeClasses;
     }
-
     public void setCafeClasses(ArrayList<cafeClass> cafeClasses) {
         this.cafeClasses = cafeClasses;
     }
