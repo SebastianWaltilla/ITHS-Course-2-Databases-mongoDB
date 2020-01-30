@@ -24,7 +24,7 @@ public class saveToMongoDB {
 
     public void saveToMongoDBMethod(ArrayList<cafeClass> listWithCafes){
 
-
+/*
         // skapa connection
 
 
@@ -51,7 +51,7 @@ public class saveToMongoDB {
 
         // close
 
-
+*/
     }
 
 

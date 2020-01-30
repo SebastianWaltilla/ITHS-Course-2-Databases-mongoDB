@@ -13,35 +13,10 @@ import javax.json.JsonStructure;
 public class mongoReader {
 
     private String jsonFile;
-    private ArrayList<cafeClass> cafeClasses;
+    private ArrayList<cafeClass> cafeClasses = new ArrayList<cafeClass>();
 
 
-    public void testLinus(){
-
-        // Exempel till LinuS
-
-        //12. Updating one record
-        updater.updateOne(Filters.eq("name", "Filip"), Updates.set("updated", false));
-
-        //12. Updating one record            // Under ersätter...
-        updater.updateOne(Filters.eq("name", cafeClasses.get(1).getName()), Updates.set("updated", false));
-
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public void parseAndPrint(String localPath)throws FileNotFoundException {
+       public void parseAndPrint(String localPath)throws FileNotFoundException {
 
         try {
             JsonReader reader = Json.createReader(new FileReader(localPath));
@@ -93,22 +68,19 @@ public class mongoReader {
                     String name =  doc.getJsonObject(i).getString("name", "no name");
                     int stars =  doc.getJsonObject(i).getInt("stars");
 
-                    cafeClass in = new cafeClass(id, name, stars);
+                    cafeClass newCafe = new cafeClass(id, name, stars);
 
                     JsonArray arr = doc.getJsonObject(i).getJsonArray("categories");
                     for (int k = 0; k < arr.size(); k++) {
-                        in.getCategories().add(arr.getString(k));
+                        newCafe.addToCategories(arr.getString(k));
                     }
-                    cafeClasses.add(in);
+                    cafeClasses.add(newCafe);
                 }
             }
         } catch (FileNotFoundException fnfe) {
             throw new FileNotFoundException("jsonFile");
         }
     }
-
-
-
 
     public ArrayList<cafeClass> getCafeClasses() {
         return cafeClasses;
@@ -117,10 +89,6 @@ public class mongoReader {
     public void setCafeClasses(ArrayList<cafeClass> cafeClasses) {
         this.cafeClasses = cafeClasses;
     }
-
-
-
-
 
 }
 

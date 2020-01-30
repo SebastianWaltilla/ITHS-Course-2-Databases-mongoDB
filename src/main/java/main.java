@@ -22,6 +22,10 @@ public class main {
         mongoReader hej = new mongoReader();
 
         try {
+
+           hej.parseAndSaveToClass("C:\\Users\\sebas\\IdeaProjects\\MongoDBJava\\src\\main\\resources\\cafe");
+           hej.getCafeClasses();
+
             hej.parseAndPrint("C:\\Users\\sebas\\IdeaProjects\\MongoDBJava\\src\\main\\resources\\cafe");
         } catch (FileNotFoundException e) {
 
