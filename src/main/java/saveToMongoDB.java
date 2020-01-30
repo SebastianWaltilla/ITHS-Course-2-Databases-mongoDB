@@ -23,7 +23,7 @@ public class saveToMongoDB {
 
             String allCategories ="";
 
-            for (int j = 0; j < listWithCafes.get(j).getCategories().size(); j++) {
+            for (int j = 0; j < listWithCafes.get(i).getCategories().size(); j++) {
                 allCategories = allCategories + listWithCafes.get(i).getCategories().get(j) + ", ";
             }
             allCategories  = allCategories.substring(0, allCategories.length() - 2);
