@@ -1,12 +1,15 @@
 package main.java;
 
 import com.mongodb.Block;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoCursor;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.*;
+import com.mongodb.client.model.Accumulators;
+import com.mongodb.client.model.Aggregates;
+import com.mongodb.client.model.Filters;
 import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
+
+import java.util.Arrays;
+
 import static com.mongodb.client.model.Filters.*;
 import static com.mongodb.client.model.Updates.inc;
 
@@ -45,10 +48,15 @@ public class editMongodbCollection {
          collection.updateOne(eq("name", "456 Cookies Shop"), new Document("$set", new Document("name", "123 Cookies  Heaven")));
     }
 
+    public void aggregateInCollection(MongoCollection<Document> collection) {
+
+        AggregateIterable<Document> result = collection.aggregate(
+                Arrays.asList(
+                        Aggregates.match(Filters.eq(matchField, matchValue)),
+                        Aggregates.group(("$" + groupField),
+                                Accumulators.sum("count", 1))));
 
 
-
-
-
+    }
 }
 

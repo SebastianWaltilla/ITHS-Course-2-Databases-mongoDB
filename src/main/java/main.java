@@ -32,21 +32,21 @@ public class main {
 
 
 
-        System.out.println("Print entire database");
+        System.out.println("\n" + "\n" + "Print entire database");
         print.printEntireCollection(collection);
 
-        System.out.println("\n" + "Skriv en metod som ​skriver ut ​namnet på alla dokument" +
+        System.out.println("\n" + "\n" + "Skriv en metod som ​skriver ut ​namnet på alla dokument" +
                 " som har kategorin “Cafe”  ○ OBS! Exkludera id så att bara namn visas");
         print.printCafeFromCollection(collection);
 
 
-        System.out.println("// ● Skriv en metod som uppdaterar genom increment “stars” för den restaurang\n" +
+        System.out.println("\n" + "\n" +"// ● Skriv en metod som uppdaterar genom increment “stars” för den restaurang\n" +
                 " som  har “name” “XYZ Coffee Bar” så att nya värdet på stars blir 6. \n" +
                 " OBS! Ni ska använda increment.");
         print.incrementStarsInCollection(collection);
         print.printEntireCollection(collection);
 
-        System.out.println("Skriv en metod som uppdaterar “name” för 456 Cookies Shop till “123 Cookies  Heaven” ");
+        System.out.println("\n" + "\n" + "Skriv en metod som uppdaterar “name” för 456 Cookies Shop till “123 Cookies  Heaven” ");
         print.editNameInCollection(collection);
         print.printEntireCollection(collection);
 
@@ -54,8 +54,9 @@ public class main {
 
         //● Skriv en metod som aggregerar en lista med alla restauranger som har 4 eller fler  “stars” ​
         // och skriver ut​ endast “name” och “stars” 
-        // ○ OBS! Metoderna ska skriva ut via System.out resultatet, det vill säga,
-        // när  jag kör ert program ska jag se resultatet från utskrifterna. 
+
+
+
 
 
 
