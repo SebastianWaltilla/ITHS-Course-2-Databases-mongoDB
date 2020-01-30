@@ -5,10 +5,12 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 import static com.mongodb.client.model.Filters.*;
+import static com.mongodb.client.model.Updates.inc;
 
-public class printCollection {
+public class editMongodbCollection {
 
     public void printEntireCollection(MongoCollection<Document> collection){
 
@@ -34,6 +36,23 @@ public class printCollection {
         collection.find(eq("Categories", "Cafe")).forEach(printBlock);
     }
 
+    public void incrementStarsInCollection(MongoCollection<Document> collection){
+        collection.updateMany(eq("name", "XYZ Coffee Bar"), inc("stars", 1));
+        // how its done in mongoDB
+        //db.restaurants.update({}, {$inc:{stars: 1}},{multi:true})
+    }
+
+    public void editNameInCollection(MongoCollection<Document> collection){
+        collection.updateOne(eq("name", "456 Cookies Shop"), new Document("name", "123 Cookies  Heaven"));
+        // how its done in mongoDB
+        //db.restaurants.update({}, {$inc:{stars: 1}},{multi:true})
+    }
+
+
+
+    //● Skriv en metod som uppdaterar “name” för ​"456 Cookies Shop"​ till “123 Cookies  Heaven” 
+    // ● OBS! ​Skriv ut ​alla restauranger igen, så att jag kan se att namnet ändrats för 
+    // denna restaurang när jag kör ert program. 
 
 
 

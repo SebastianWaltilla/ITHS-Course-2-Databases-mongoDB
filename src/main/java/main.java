@@ -1,5 +1,4 @@
 package main.java;
-import com.mongodb.Block;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
@@ -29,7 +28,7 @@ public class main {
         MongoClient client= MongoClients.create();
         MongoDatabase database = client.getDatabase("lab3");
         MongoCollection<Document> collection = database.getCollection("restaurants");
-        printCollection print = new printCollection();
+        editMongodbCollection print = new editMongodbCollection();
 
 
 
@@ -41,25 +40,15 @@ public class main {
         print.printCafeFromCollection(collection);
 
 
+        System.out.println("// ● Skriv en metod som uppdaterar genom increment “stars” för den restaurang\n" +
+                " som  har “name” “XYZ Coffee Bar” så att nya värdet på stars blir 6. \n" +
+                " OBS! Ni ska använda increment.");
+        print.incrementStarsInCollection(collection);
+        print.printEntireCollection(collection);
 
-
-        // ● Skriv en metod som uppdaterar genom increment “stars” för den restaurang
-        // som  har “name” “XYZ Coffee Bar” så att nya värdet på stars blir 6. 
-        // OBS! Ni ska använda ​increment.
-
-
-
-
-        // ○ OBS! ​Skriv ut ​alla restauranger igen, så att jag kan se att “stars” blivit 6,
-        // för  denna restaurang när jag kör ert program. 
-
-
-
-
-        //● Skriv en metod som uppdaterar “name” för ​"456 Cookies Shop"​ till “123 Cookies  Heaven” 
-        // ● OBS! ​Skriv ut ​alla restauranger igen, så att jag kan se att namnet ändrats för 
-        // denna restaurang när jag kör ert program. 
-
+        System.out.println("Skriv en metod som uppdaterar “name” för 456 Cookies Shop till “123 Cookies  Heaven” ");
+        print.editNameInCollection(collection);
+        print.printEntireCollection(collection);
 
 
 
