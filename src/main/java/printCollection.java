@@ -31,7 +31,6 @@ public class printCollection {
                 System.out.println(document.toJson());
             }
         };
-
         collection.find(eq("Categories", "Cafe")).forEach(printBlock);
     }
 

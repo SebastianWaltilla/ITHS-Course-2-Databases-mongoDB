@@ -13,7 +13,6 @@ public class saveToMongoDB {
         MongoClient client= MongoClients.create();
         MongoDatabase database = client.getDatabase("lab3");
         MongoCollection<Document> collection = database.getCollection("restaurants");
-
         Document doc;
 
         for (int i = 0; i < listWithCafes.size(); i++) {
