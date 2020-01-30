@@ -1,25 +1,25 @@
 package main.java;
 
-import com.mongodb.MongoClient;
+
+import com.mongodb.Block;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
 
-
-import java.io.FileReader;
 import java.io.FileNotFoundException;
-import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonValue;
-import javax.json.JsonObject;
-import static javax.json.JsonValue.ValueType.*;
-import javax.json.JsonReader;
-import javax.json.JsonStructure;
 
 
 public class main {
 
     public static void main(String[] args) {
+        jsonReader hej = new jsonReader();
 
-        mongoReader hej = new mongoReader();
+        saveToMongoDB save = new saveToMongoDB();
+
+        save.saveToMongoDBMethod(hej.getCafeClasses());
+
+
 
         try {
 
@@ -28,6 +28,11 @@ public class main {
 
             hej.parseAndPrint("C:\\Users\\sebas\\IdeaProjects\\MongoDBJava\\src\\main\\resources\\cafe");
         } catch (FileNotFoundException e) {
+
+
+
+            save.saveToMongoDBMethod(hej.getCafeClasses());
+
 
         }
 

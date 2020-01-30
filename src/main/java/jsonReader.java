@@ -10,13 +10,12 @@ import static javax.json.JsonValue.ValueType.*;
 import javax.json.JsonReader;
 import javax.json.JsonStructure;
 
-public class mongoReader {
+public class jsonReader {
 
-    private String jsonFile;
-    private ArrayList<cafeClass> cafeClasses = new ArrayList<cafeClass>();
+   private ArrayList<cafeClass> cafeClasses = new ArrayList<cafeClass>();
 
 
-       public void parseAndPrint(String localPath)throws FileNotFoundException {
+   public void parseAndPrint(String localPath)throws FileNotFoundException {
 
         try {
             JsonReader reader = Json.createReader(new FileReader(localPath));
@@ -44,14 +43,12 @@ public class mongoReader {
                     System.out.println(" ");
                 }
             }
-
         } catch (FileNotFoundException fnfe) {
             throw new FileNotFoundException("jsonFile");
         }
-
     }
 
-    public void parseAndSaveToClass(String localPath)throws FileNotFoundException {
+    public ArrayList<cafeClass> parseAndSaveToClass(String localPath)throws FileNotFoundException {
 
         try {
             JsonReader reader = Json.createReader(new FileReader(localPath));
@@ -80,6 +77,7 @@ public class mongoReader {
         } catch (FileNotFoundException fnfe) {
             throw new FileNotFoundException("jsonFile");
         }
+        return cafeClasses;
     }
 
     public ArrayList<cafeClass> getCafeClasses() {

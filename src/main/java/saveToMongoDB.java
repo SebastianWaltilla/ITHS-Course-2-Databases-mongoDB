@@ -1,60 +1,40 @@
 package main.java;
-import java.util.ArrayList;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import org.bson.Document;
 
-import com.mongodb.MongoClientSettings;
-import com.mongodb.MongoCredential;
-import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.CreateCollectionOptions;
-import com.mongodb.client.model.Filters;
-import com.mongodb.client.model.Projections;
-import com.mongodb.client.model.Sorts;
-import com.mongodb.client.model.Updates;
-import com.mongodb.client.model.ValidationOptions;
+import java.util.ArrayList;
+
 
 public class saveToMongoDB {
 
-    public void saveToMongoDBMethod(ArrayList<cafeClass> listWithCafes){
 
-/*
-        // skapa connection
+    public void saveToMongoDBMethod(ArrayList<cafeClass> listWithCafes) {
 
+        MongoClient client= MongoClients.create();
 
-        MongoManager.init("lab3");
-        MongoCollection<Document> coll = MongoManager.getCollection("test");
+        MongoDatabase database = client.getDatabase("lab3");
 
+        MongoCollection<Document> collection = database.getCollection("restaurants");
 
-
-
-
-        // Fyll
-
-        for (int i = 0; i < ; i++) {
-
-            update id, namn, stars,
-
-            for (int y = 0; y < ; y++) {
-                $push fyll en arrat med kategories
-            }
+        Document doc;
 
 
-        }
+            doc = new Document()
+                    .append("_id", "hej")
+                    .append("stars", 1)
+                    .append("name","Slinus");
 
 
-        // close
+            collection.insertOne(doc);
 
-*/
+        client.close();
+
+
+
+
+
     }
-
-
-
-
 }
