@@ -51,9 +51,7 @@ public class main {
         print.printEntireCollection(collection);
 
 
-
-        //● Skriv en metod som aggregerar en lista med alla restauranger som har 4 eller fler  “stars” ​
-        // och skriver ut​ endast “name” och “stars” 
+        System.out.println("\n" + "\n" + "Skriv en metod som aggregerar en lista med alla restauranger som har 4 eller fler  “stars” och skriver ut endast “name” och “stars” ");
         print.aggregateInCollection(collection);
 
 
