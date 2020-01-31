@@ -15,13 +15,6 @@ public class cafeClass {
         this.stars = stars;
     }
 
-    public cafeClass(String _id, String name, int stars, String se) {
-        this._id = _id;
-        this.name = name;
-        this.stars = stars;
-        this.categories.add(se);
-    }
-
     public ArrayList<String> getCategories() {
         return categories;
     }

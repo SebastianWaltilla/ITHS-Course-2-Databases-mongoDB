@@ -15,9 +15,9 @@ public class main {
         saveToMongoDB save = new saveToMongoDB();
 
         try {
-           //method for taking a json-file and parse it to a ArrayList with objects of type cafe
+           //method for turning a json-file and parse it to a ArrayList with objects of type cafe
            file.parseAndSaveToClass("C:\\Users\\sebas\\IdeaProjects\\MongoDBJava\\src\\main\\resources\\cafe");
-           //method for sent the ArrayList to mongoDB local server
+           //method for sent the ArrayList with objects of type cafe to mongoDB local server
            save.saveToMongoDBMethod(file.getCafeClasses());
 
         } catch (FileNotFoundException e) {
@@ -30,28 +30,23 @@ public class main {
         MongoCollection<Document> collection = database.getCollection("restaurants");
         editMongodbCollection print = new editMongodbCollection();
 
-
-
-        System.out.println("\n" + "\n" + "Print entire database");
+        System.out.println("\n" + "\n" + "Task1: Print entire collection of cafes");
         print.printEntireCollection(collection);
 
-        System.out.println("\n" + "\n" + "Skriv en metod som ​skriver ut ​namnet på alla dokument" +
-                " som har kategorin “Cafe”  ○ OBS! Exkludera id så att bara namn visas");
+        System.out.println("\n" + "\n" + "Task2: Method for sys.out name on documents with category Cafe, " +
+                " only show the name of cafe's");
         print.printCafeFromCollection(collection);
 
-
-        System.out.println("\n" + "\n" +"// ● Skriv en metod som uppdaterar genom increment “stars” för den restaurang\n" +
-                " som  har “name” “XYZ Coffee Bar” så att nya värdet på stars blir 6. \n" +
-                " OBS! Ni ska använda increment.");
+        System.out.println("\n" + "\n" + "Task3: Metod that increment “stars” for the restaurant\n" +
+                " with “name” = “XYZ Coffee Bar” with 1");
         print.incrementStarsInCollection(collection);
         print.printEntireCollection(collection);
 
-        System.out.println("\n" + "\n" + "Skriv en metod som uppdaterar “name” för 456 Cookies Shop till “123 Cookies  Heaven” ");
+        System.out.println("\n" + "\n" + "Task4: Method that updats “name” for “456 Cookies Shop“ to “123 Cookies  Heaven” ");
         print.editNameInCollection(collection);
         print.printEntireCollection(collection);
 
-
-        System.out.println("\n" + "\n" + "Skriv en metod som aggregerar en lista med alla restauranger som har 4 eller fler  “stars” och skriver ut endast “name” och “stars” ");
+        System.out.println("\n" + "\n" + "Task5 Method aggragate restaurants with “stars” grater than 4 and print only  “name” and “stars” ");
         print.aggregateInCollection(collection);
 
 
