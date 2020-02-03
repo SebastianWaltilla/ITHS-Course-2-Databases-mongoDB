@@ -43,10 +43,6 @@ public class editMongodbCollection {
         for (int i = 0; i < listDoc.size(); i++) {
             System.out.println(listDoc.get(i).toJson());
         }
-
-
-
-
     }
 
     public void incrementStarsInCollection(MongoCollection<Document> collection){

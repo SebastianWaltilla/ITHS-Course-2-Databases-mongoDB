@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class saveToMongoDB {
 
+    // Takes a list with cafe's and send every cafe to collection "restaurants" in database "lab3"
     public void saveToMongoDBMethod(ArrayList<cafeClass> listWithCafes) {
 
         MongoClient client= MongoClients.create();

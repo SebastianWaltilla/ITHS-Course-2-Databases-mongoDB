@@ -11,25 +11,25 @@ public class main {
     public static void main(String[] args) {
 
         //Fill database from json file.
-        jsonReader file = new jsonReader();
+        jsonReader file = new jsonReader();     //här skapas en lista
         saveToMongoDB save = new saveToMongoDB();
-
         try {
            //method for turning a json-file and parse it to a ArrayList with objects of type cafe
            file.parseAndSaveToClass("C:\\Users\\sebas\\IdeaProjects\\MongoDBJava\\src\\main\\resources\\cafe");
            //method for sent the ArrayList with objects of type cafe to mongoDB local server
-           save.saveToMongoDBMethod(file.getCafeClasses());
+           save.saveToMongoDBMethod(file.getCafeClasses()); // skickar til databasen
 
         } catch (FileNotFoundException e) {
             System.out.println("Error, path wrong or json in wrong");
         }
 
-        // Methods for access and change mongodb lab3, collection resturants
+        // Methods for access mongodb lab3 and the collection resturants
         MongoClient client= MongoClients.create();
         MongoDatabase database = client.getDatabase("lab3");
         MongoCollection<Document> collection = database.getCollection("restaurants");
         editMongodbCollection print = new editMongodbCollection();
 
+        // Methods for make changes in the collection 'restaurants' in database 'lab3'
         System.out.println("\n" + "\n" + "Task1: Print entire collection of cafes");
         print.printEntireCollection(collection);
 
@@ -49,21 +49,8 @@ public class main {
         System.out.println("\n" + "\n" + "Task5 Method aggragate restaurants with “stars” grater than 4 and print only  “name” and “stars” ");
         print.aggregateInCollection(collection);
 
-
-
-
-
-
-
-
-
-
+        // Close connection to local monogoDB
         client.close();
-
-
-
     }
-
-
 }
 

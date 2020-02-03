@@ -8,11 +8,11 @@ import javax.json.JsonObject;
 import static javax.json.JsonValue.ValueType.*;
 import javax.json.JsonReader;
 import javax.json.JsonStructure;
-
 public class jsonReader {
 
    private ArrayList<cafeClass> cafeClasses = new ArrayList<cafeClass>();
 
+   //  parseAndSaveToClass takes a json file and parse it to a cafe class, put the cafe instance and put it in ArrayList.
     public ArrayList<cafeClass> parseAndSaveToClass(String localPath)throws FileNotFoundException {
 
         try {
@@ -25,9 +25,9 @@ public class jsonReader {
 
                 for (int i = 0; i < doc.size(); i++) {
 
-                    String id = doc.getJsonObject(i).getString("_id", "no id");
+                    String id   = doc.getJsonObject(i).getString("_id", "no id");
                     String name =  doc.getJsonObject(i).getString("name", "no name");
-                    int stars =  doc.getJsonObject(i).getInt("stars");
+                    int stars   =  doc.getJsonObject(i).getInt("stars");
                     cafeClass newCafe = new cafeClass(id, name, stars);
 
                     JsonArray arr = doc.getJsonObject(i).getJsonArray("categories");

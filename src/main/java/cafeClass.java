@@ -1,13 +1,13 @@
 package main.java;
-
 import java.util.ArrayList;
 
+// the cafe class holds every cafe document and its information
 public class cafeClass {
 
-    String _id;
-    String name;
-    int stars;
-    ArrayList<String> categories = new ArrayList<String>();
+    private String _id;
+    private String name;
+    private int stars;
+    private ArrayList<String> categories = new ArrayList<String>();
 
     public cafeClass(String _id, String name, int stars) {
         this._id = _id;
