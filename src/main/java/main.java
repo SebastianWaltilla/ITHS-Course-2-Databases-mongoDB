@@ -10,14 +10,17 @@ public class main {
 
     public static void main(String[] args) {
 
+        GetInput getInput = new GetInput();
+        boolean stop = true;
+
         //Fill database from json file.
         jsonReader file = new jsonReader();     //här skapas en lista
         saveToMongoDB save = new saveToMongoDB();
         try {
-           //method for turning a json-file and parse it to a ArrayList with objects of type cafe
-           file.parseAndSaveToClass("C:\\Users\\sebas\\IdeaProjects\\MongoDBJava\\src\\main\\resources\\cafe");
-           //method for sent the ArrayList with objects of type cafe to mongoDB local server
-           save.saveToMongoDBMethod(file.getCafeClasses()); // skickar til databasen
+            //method for turning a json-file and parse it to a ArrayList with objects of type cafe
+            file.parseAndSaveToClass("C:\\Users\\sebas\\IdeaProjects\\MongoDBJava\\src\\main\\resources\\cafe");
+            //method for sent the ArrayList with objects of type cafe to mongoDB local server
+            save.saveToMongoDBMethod(file.getCafeClasses()); // skickar til databasen
 
         } catch (FileNotFoundException e) {
             System.out.println("Error, path wrong or json in wrong");
@@ -29,25 +32,43 @@ public class main {
         MongoCollection<Document> collection = database.getCollection("restaurants");
         editMongodbCollection print = new editMongodbCollection();
 
-        // Methods for make changes in the collection 'restaurants' in database 'lab3'
-        System.out.println("\n" + "\n" + "Task1: Print entire collection of cafes");
-        print.printEntireCollection(collection);
+        System.out.println("first enter 1 for watch sebastians lab3");
 
-        System.out.println("\n" + "\n" + "Task2: Method for sys.out name on documents with category Cafe, " +
-                " only show the name of cafe's");
-        print.printCafeFromCollection(collection);
+        while(stop == true){
 
-        System.out.println("\n" + "\n" + "Task3: Metod that increment “stars” for the restaurant\n" +
-                " with “name” = “XYZ Coffee Bar” with 1");
-        print.incrementStarsInCollection(collection);
-        print.printEntireCollection(collection);
+            switch (getInput.getInt()){
 
-        System.out.println("\n" + "\n" + "Task4: Method that updats “name” for “456 Cookies Shop“ to “123 Cookies  Heaven” ");
-        print.editNameInCollection(collection);
-        print.printEntireCollection(collection);
+            case 1:
+                // Methods for make changes in the collection 'restaurants' in database 'lab3'
+                System.out.println("\n" + "\n" + "Task1: Print entire collection of cafes");
+                print.printEntireCollection(collection);
 
-        System.out.println("\n" + "\n" + "Task5 Method aggragate restaurants with “stars” grater than 4 and print only  “name” and “stars” ");
-        print.aggregateInCollection(collection);
+                System.out.println("\n" + "\n" + "Task2: Method for sys.out name on documents with category Cafe, " +
+                        " only show the name of cafe's");
+                print.printCafeFromCollection(collection);
+
+                System.out.println("\n" + "\n" + "Task3: Metod that increment “stars” for the restaurant\n" +
+                        " with “name” = “XYZ Coffee Bar” with 1");
+                print.incrementStarsInCollection(collection);
+                print.printEntireCollection(collection);
+
+                System.out.println("\n" + "\n" + "Task4: Method that updats “name” for “456 Cookies Shop“ to “123 Cookies  Heaven” ");
+                print.editNameInCollection(collection);
+                print.printEntireCollection(collection);
+
+                System.out.println("\n" + "\n" + "Task5 Method aggragate restaurants with “stars” grater than 4 and print only  “name” and “stars” ");
+                print.aggregateInCollection(collection);
+
+                System.out.println("enter 2 to clear restaurants collection and exit:");
+                break;
+
+            case 2:
+                stop = false;
+                print.removeInCollection(collection);
+                System.out.println("restaurants removed");
+                break;
+            }
+        }
 
         // Close connection to local monogoDB
         client.close();

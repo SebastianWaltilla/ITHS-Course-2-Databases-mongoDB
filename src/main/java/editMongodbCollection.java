@@ -76,5 +76,10 @@ public class editMongodbCollection {
             System.out.println(listDoc.get(i).toJson());
         }
     }
+
+    public void removeInCollection(MongoCollection<Document> collection) {
+        collection.drop();
+    }
+
 }
 
