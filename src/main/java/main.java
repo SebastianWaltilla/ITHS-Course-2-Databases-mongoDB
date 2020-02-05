@@ -18,7 +18,7 @@ public class main {
         saveToMongoDB save = new saveToMongoDB();
         try {
             //method for turning a json-file and parse it to a ArrayList with objects of type cafe
-            file.parseAndSaveToClass("C:\\Users\\sebas\\IdeaProjects\\MongoDBJava\\src\\main\\resources\\cafe");
+            file.parseAndSaveToClass("./src/main/resources/cafe.json");
             //method for sent the ArrayList with objects of type cafe to mongoDB local server
             save.saveToMongoDBMethod(file.getCafeClasses()); // skickar til databasen
 
